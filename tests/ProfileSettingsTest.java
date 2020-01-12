@@ -1,4 +1,4 @@
-﻿import codewars.LoginPage;
+import codewars.LoginPage;
 import codewars.MainPage;
 import codewars.ProfileSettingsPage;
 import org.junit.After;

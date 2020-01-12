@@ -27,12 +27,12 @@ public class MainPageTest {
     public void clojureTest() {
         mainPage.clojureLanguage("valid");
         Assert.assertTrue(mainPage.isPresentAndDisplayedSignUpElement());
-    }   // попытка успешного прохождения задачи и получения TRUE значения отображения элемента страницы регистрации
+    }   // РїРѕРїС‹С‚РєР° СѓСЃРїРµС€РЅРѕРіРѕ РїСЂРѕС…РѕР¶РґРµРЅРёСЏ Р·Р°РґР°С‡Рё Рё РїРѕР»СѓС‡РµРЅРёСЏ TRUE Р·РЅР°С‡РµРЅРёСЏ РѕС‚РѕР±СЂР°Р¶РµРЅРёСЏ СЌР»РµРјРµРЅС‚Р° СЃС‚СЂР°РЅРёС†С‹ СЂРµРіРёСЃС‚СЂР°С†РёРё
     @Test
     public void cTest() {
         mainPage.cLanguage("invalid");
         Assert.assertFalse(mainPage.isPresentAndDisplayedSignUpElement());
-    }   // попытка неправильного прохождения задачи и получения FALSE значения отображения элемента страницы регистрации
+    }   // РїРѕРїС‹С‚РєР° РЅРµРїСЂР°РІРёР»СЊРЅРѕРіРѕ РїСЂРѕС…РѕР¶РґРµРЅРёСЏ Р·Р°РґР°С‡Рё Рё РїРѕР»СѓС‡РµРЅРёСЏ FALSE Р·РЅР°С‡РµРЅРёСЏ РѕС‚РѕР±СЂР°Р¶РµРЅРёСЏ СЌР»РµРјРµРЅС‚Р° СЃС‚СЂР°РЅРёС†С‹ СЂРµРіРёСЃС‚СЂР°С†РёРё
     @Test
     public void cPlusTest() {
         mainPage.cPlusLanguage("valid");

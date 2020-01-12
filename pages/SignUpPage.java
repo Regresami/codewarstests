@@ -36,7 +36,7 @@ public class SignUpPage {
         return this;
     }
     public SignUpPage tryToSignUp(String email, String username, String password) {
-        // с этим методом тестировщик пытается зарегистрироваться, вводя нужные ему данные
+        // СЃ СЌС‚РёРј РјРµС‚РѕРґРѕРј С‚РµСЃС‚РёСЂРѕРІС‰РёРє РїС‹С‚Р°РµС‚СЃСЏ Р·Р°СЂРµРіРёСЃС‚СЂРёСЂРѕРІР°С‚СЊСЃСЏ, РІРІРѕРґСЏ РЅСѓР¶РЅС‹Рµ РµРјСѓ РґР°РЅРЅС‹Рµ
         this.emailType(email);
         this.usernameType(username);
         this.passwordType(password);

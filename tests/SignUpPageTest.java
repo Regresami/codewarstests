@@ -33,35 +33,35 @@ public class SignUpPageTest {
         signUpPage.tryToSignUp("","","");
         signUpPage.createAccountButton();
         Assert.assertEquals("can't be blank", signUpPage.errEmptyField());
-    }   // пытаемся зарегистрироваться не вводя никаких данных --> проверяем появление ошибки пустого поля
+    }   // РїС‹С‚Р°РµРјСЃСЏ Р·Р°СЂРµРіРёСЃС‚СЂРёСЂРѕРІР°С‚СЊСЃСЏ РЅРµ РІРІРѕРґСЏ РЅРёРєР°РєРёС… РґР°РЅРЅС‹С… --> РїСЂРѕРІРµСЂСЏРµРј РїРѕСЏРІР»РµРЅРёРµ РѕС€РёР±РєРё РїСѓСЃС‚РѕРіРѕ РїРѕР»СЏ
     @Test
     public void signUpWithInvalidEmailTest() {
         mainPage.fSharpLanguage("valid");
         signUpPage.tryToSignUp("invalid_email", "validUsername", "valid_password");
         signUpPage.createAccountButton();
         Assert.assertEquals("is invalid", signUpPage.errInvalidEmail());
-    }   //  пытаемся зарегистрироваться с некорректным емейлом --> проверяем появление ошибки невалидного емейла
+    }   //  РїС‹С‚Р°РµРјСЃСЏ Р·Р°СЂРµРіРёСЃС‚СЂРёСЂРѕРІР°С‚СЊСЃСЏ СЃ РЅРµРєРѕСЂСЂРµРєС‚РЅС‹Рј РµРјРµР№Р»РѕРј --> РїСЂРѕРІРµСЂСЏРµРј РїРѕСЏРІР»РµРЅРёРµ РѕС€РёР±РєРё РЅРµРІР°Р»РёРґРЅРѕРіРѕ РµРјРµР№Р»Р°
     @Test
     public void signUpWithShortUsernameTest() {
         mainPage.fSharpLanguage("valid");
         signUpPage.tryToSignUp("validEmail@gmail.com", "qa", "valid_password");
         signUpPage.createAccountButton();
         Assert.assertEquals("is too short (minimum is 3 characters)", signUpPage.errShortUsername());
-    }   // пытаемся зарегистрироваться с коротким юзернеймом --> проверяем появление ошибки
+    }   // РїС‹С‚Р°РµРјСЃСЏ Р·Р°СЂРµРіРёСЃС‚СЂРёСЂРѕРІР°С‚СЊСЃСЏ СЃ РєРѕСЂРѕС‚РєРёРј СЋР·РµСЂРЅРµР№РјРѕРј --> РїСЂРѕРІРµСЂСЏРµРј РїРѕСЏРІР»РµРЅРёРµ РѕС€РёР±РєРё
     @Test
     public void signUpWithShortPasswordTest() {
         mainPage.fSharpLanguage("valid");
         signUpPage.tryToSignUp("validEmail@gmail.com", "validUsername", "pass");
         signUpPage.createAccountButton();
         Assert.assertEquals("is too short (minimum is 6 characters)", signUpPage.errShortPassword());
-    }   // пытаемся зарегистрироваться с коротким паролем -->   проверяем появление ошибки
+    }   // РїС‹С‚Р°РµРјСЃСЏ Р·Р°СЂРµРіРёСЃС‚СЂРёСЂРѕРІР°С‚СЊСЃСЏ СЃ РєРѕСЂРѕС‚РєРёРј РїР°СЂРѕР»РµРј -->   РїСЂРѕРІРµСЂСЏРµРј РїРѕСЏРІР»РµРЅРёРµ РѕС€РёР±РєРё
     @Test
     public void signUpWithAlreadyTakenUsernameTest() {
         mainPage.fSharpLanguage("valid");
         signUpPage.tryToSignUp("validEmail@gmail.com", "qwerty", "valid_password");
         signUpPage.createAccountButton();
         Assert.assertEquals("is already taken", signUpPage.errUsernameIsAlreadyTaken());
-    }   // пытаемся зарегистрироваться с занятым юзернеймом -->   проверяем появление ошибки
+    }   // РїС‹С‚Р°РµРјСЃСЏ Р·Р°СЂРµРіРёСЃС‚СЂРёСЂРѕРІР°С‚СЊСЃСЏ СЃ Р·Р°РЅСЏС‚С‹Рј СЋР·РµСЂРЅРµР№РјРѕРј -->   РїСЂРѕРІРµСЂСЏРµРј РїРѕСЏРІР»РµРЅРёРµ РѕС€РёР±РєРё
     @After
     public void tearDown() {
         driver.quit();

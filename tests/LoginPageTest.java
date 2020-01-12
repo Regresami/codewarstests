@@ -30,18 +30,18 @@ public class LoginPageTest {
         mainPage.clickSignIn();
         loginPage.tryToLogin("regresamit@gmail.com", "password1");
         Assert.assertTrue(loginPage.checkHomePageHeader());
-        //логинимся под валидными данными и проверяем наличие шапки
+        //Р»РѕРіРёРЅРёРјСЃСЏ РїРѕРґ РІР°Р»РёРґРЅС‹РјРё РґР°РЅРЅС‹РјРё Рё РїСЂРѕРІРµСЂСЏРµРј РЅР°Р»РёС‡РёРµ С€Р°РїРєРё
     }
     @Test
     public void logInWithIncorrectPassword() {
         mainPage.clickSignIn();
         loginPage.tryToLogin("regresamit@gmail.com", "incorrect_password");
         Assert.assertEquals("Invalid Email or password.", loginPage.ErrInvalidEmailOrPassword());
-    }   // проверяем отображение ошибки при неверных данных
+    }   // РїСЂРѕРІРµСЂСЏРµРј РѕС‚РѕР±СЂР°Р¶РµРЅРёРµ РѕС€РёР±РєРё РїСЂРё РЅРµРІРµСЂРЅС‹С… РґР°РЅРЅС‹С…
     @Test
     public void logInWithoutPasswordTest() {
         mainPage.clickSignIn();
         loginPage.tryToLogin("regresamit@gmail.com", "");
         Assert.assertEquals("Invalid Email or password.", loginPage.ErrInvalidEmailOrPassword());
-    }   // проверяем отображение ошибки при попытке залогинится без пароля
+    }   // РїСЂРѕРІРµСЂСЏРµРј РѕС‚РѕР±СЂР°Р¶РµРЅРёРµ РѕС€РёР±РєРё РїСЂРё РїРѕРїС‹С‚РєРµ Р·Р°Р»РѕРіРёРЅРёС‚СЃСЏ Р±РµР· РїР°СЂРѕР»СЏ
 }

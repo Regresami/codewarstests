@@ -28,17 +28,17 @@ public class ProfileSettingsPage {
     private By successfullyUpdate = By.xpath("//div[@class='alert-box flash-msg notice']");
 
     public ProfileSettingsPage clickProfileSettingsButton () {
-        // Элемент кнопки Profile Settings скрыт за всплывающем окном, на которое мы должны навестись с помощью moveToElement
+        // РЃР»РµРјРµРЅС‚ РєРЅРѕРїРєРё Profile Settings СЃРєСЂС‹С‚ Р·Р° РІСЃРїР»С‹РІР°СЋС‰РµРј РѕРєРЅРѕРј, РЅР° РєРѕС‚РѕСЂРѕРµ РјС‹ РґРѕР»Р¶РЅС‹ РЅР°РІРµСЃС‚РёСЃСЊ СЃ РїРѕРјРѕС‰СЊСЋ moveToElement
         action.moveToElement(driver.findElement(profileBar)).perform();
         driver.findElement(profileSettings).click();
         return new ProfileSettingsPage(driver);
     }
-    public ProfileSettingsPage clickConfirmNewUpdates() { // Кнопка подтверждения изменений данных в профиле.
+    public ProfileSettingsPage clickConfirmNewUpdates() { // В РЅРѕРїРєР° РїРѕРґС‚РІРµСЂР¶РґРµРЅРёВ¤ РёР·РјРµРЅРµРЅРёР№ РґР°РЅРЅС‹С… РІ РїСЂРѕС„РёР»Рµ.
         driver.findElement(confirmNewUpdates).click();
         return new ProfileSettingsPage(driver);
     }
     public ProfileSettingsPage setNameSkillsAndCompanyFields (String name, String company, String skills) {
-        // создаем метод, с помощью которого тестировщик вводит текст, которым он назначает изменения в полях профиля
+        // СЃРѕР·РґР°РµРј РјРµС‚РѕРґ, СЃ РїРѕРјРѕС‰СЊСЋ РєРѕС‚РѕСЂРѕРіРѕ С‚РµСЃС‚РёСЂРѕРІС‰РёРє РІРІРѕРґРёС‚ С‚РµРєСЃС‚, РєРѕС‚РѕСЂС‹Рј РѕРЅ РЅР°Р·РЅР°С‡Р°РµС‚ РёР·РјРµРЅРµРЅРёВ¤ РІ РїРѕР»В¤С… РїСЂРѕС„РёР»В¤
         driver.findElement(this.profileName).sendKeys(name);
         driver.findElement(this.profileCompany).sendKeys(company);
         driver.findElement(this.profileSkills).sendKeys(skills);
@@ -46,14 +46,14 @@ public class ProfileSettingsPage {
         return new ProfileSettingsPage(driver);
     }
     public ProfileSettingsPage clickProfileRadioButtons() {
-        // прокликиваем радио баттоны
+        // РїСЂРѕРєР»РёРєРёРІР°РµРј СЂР°РґРёРѕ Р±Р°С‚С‚РѕРЅС‹
         driver.findElement(ExperienceRadioButton).click();
         driver.findElement(EmailNotificationsRadioButton).click();
         clickConfirmNewUpdates();
         return new ProfileSettingsPage(driver);
     }
     public ProfileSettingsPage tryToChangePassword (String password, String confirmPassword, String currentPassword) {
-        // метод, которым мы пытаемся изменить пароль профиля
+        // РјРµС‚РѕРґ, РєРѕС‚РѕСЂС‹Рј РјС‹ РїС‹С‚Р°РµРјСЃВ¤ РёР·РјРµРЅРёС‚СЊ РїР°СЂРѕР»СЊ РїСЂРѕС„РёР»В¤
         driver.findElement(this.newPassword).sendKeys(password);
         driver.findElement(this.newPasswordConfirmation).sendKeys(confirmPassword);
         driver.findElement(this.currentPassword).sendKeys(currentPassword);
@@ -61,18 +61,18 @@ public class ProfileSettingsPage {
         return new ProfileSettingsPage(driver);
     }
     public ProfileSettingsPage clickLogOutButton() {
-        // метод для проверки успешного изменения пароля профиля. LogOut --> LogIn
+        // РјРµС‚РѕРґ РґР»В¤ РїСЂРѕРІРµСЂРєРё СѓСЃРїРµС€РЅРѕРіРѕ РёР·РјРµРЅРµРЅРёВ¤ РїР°СЂРѕР»В¤ РїСЂРѕС„РёР»В¤. LogOut --> LogIn
         action.moveToElement(driver.findElement(profileBar)).perform();
         driver.findElement(logOutButton).click();
         driver.findElement(By.xpath("//div[@class='logo-square']")).click();
         return new ProfileSettingsPage(driver);
     }
     public String getSuccessfullySettingsUpdateText() {
-        return driver.findElement(successfullyUpdate).getText(); // запрашиваем текст всплывающего элемента об успешном редактирвании профиля
+        return driver.findElement(successfullyUpdate).getText(); // Р·Р°РїСЂР°С€РёРІР°РµРј С‚РµРєСЃС‚ РІСЃРїР»С‹РІР°СЋС‰РµРіРѕ СЌР»РµРјРµРЅС‚Р° РѕР± СѓСЃРїРµС€РЅРѕРј СЂРµРґР°РєС‚РёСЂРІР°РЅРёРё РїСЂРѕС„РёР»В¤
     }
     public String getNameText() {
-        return driver.findElement(profileName).getAttribute("value");// input не позволяем нам получить текст getText методом
-    }                                                                   // запрашиваем атрибут 'value' и берем его значение
+        return driver.findElement(profileName).getAttribute("value");// input РЅРµ РїРѕР·РІРѕР»В¤РµРј РЅР°Рј РїРѕР»СѓС‡РёС‚СЊ С‚РµРєСЃС‚ getText РјРµС‚РѕРґРѕРј
+    }                                                                   // Р·Р°РїСЂР°С€РёРІР°РµРј Р°С‚СЂРёР±СѓС‚ 'value' Рё Р±РµСЂРµРј РµРіРѕ Р·РЅР°С‡РµРЅРёРµ
     public String getCompanyText() {
         return driver.findElement(profileCompany).getAttribute("value");
     }
@@ -80,7 +80,7 @@ public class ProfileSettingsPage {
         return driver.findElement(profileSkills).getAttribute("value");
     }
     public boolean isSelectedExperienceRadioButton() {
-        return driver.findElement(ExperienceRadioButton).isDisplayed(); // boolean, который возвращает нам TRUE/FALSE выделения радио баттона
+        return driver.findElement(ExperienceRadioButton).isDisplayed(); // boolean, РєРѕС‚РѕСЂС‹Р№ РІРѕР·РІСЂР°С‰Р°РµС‚ РЅР°Рј TRUE/FALSE РІС‹РґРµР»РµРЅРёВ¤ СЂР°РґРёРѕ Р±Р°С‚С‚РѕРЅР°
     }
     public boolean isSelectedEmailNotificationsRadioButtons() {
         return driver.findElement(EmailNotificationsRadioButton).isDisplayed();
