@@ -25,7 +25,7 @@ public class LoginPage {
         return this;
     }
     public LoginPage tryToLogin(String email, String password) {
-        // метод, с помощью которого тестировщик вводит нужные ему данные для логина
+        // РјРµС‚РѕРґ, СЃ РїРѕРјРѕС‰СЊСЋ РєРѕС‚РѕСЂРѕРіРѕ С‚РµСЃС‚РёСЂРѕРІС‰РёРє РІРІРѕРґРёС‚ РЅСѓР¶РЅС‹Рµ РµРјСѓ РґР°РЅРЅС‹Рµ РґР»СЏ Р»РѕРіРёРЅР°
         this.emailType(email);
         this.passwordType(password);
         driver.findElement(loginSubmitButton).click();
@@ -37,5 +37,5 @@ public class LoginPage {
     public String ErrInvalidEmailOrPassword() {
         return driver.findElement(errorInvalidEmailOrPassword).getText();
     }
-}   // boolean - проверяем методом isDisplayed наличие элемента шапки профиля
-    // String - запрашиваем текст ошибки, которая говорит нам об ошибке емеила или пароля
+}   // boolean - РїСЂРѕРІРµСЂСЏРµРј РјРµС‚РѕРґРѕРј isDisplayed РЅР°Р»РёС‡РёРµ СЌР»РµРјРµРЅС‚Р° С€Р°РїРєРё РїСЂРѕС„РёР»СЏ
+    // String - Р·Р°РїСЂР°С€РёРІР°РµРј С‚РµРєСЃС‚ РѕС€РёР±РєРё, РєРѕС‚РѕСЂР°СЏ РіРѕРІРѕСЂРёС‚ РЅР°Рј РѕР± РѕС€РёР±РєРµ РµРјРµРёР»Р° РёР»Рё РїР°СЂРѕР»СЏ
