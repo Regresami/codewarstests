@@ -28,19 +28,20 @@ public class LoginPageTest {
     @Test
     public void logInValidTest() {
         mainPage.clickSignIn();
-        loginPage.tryToLogin("regresamit@gmail.com", "orired13");
+        loginPage.tryToLogin("regresamit@gmail.com", "password1");
         Assert.assertTrue(loginPage.checkHomePageHeader());
+        //логинимся под валидными данными и проверяем наличие шапки
     }
     @Test
     public void logInWithIncorrectPassword() {
         mainPage.clickSignIn();
         loginPage.tryToLogin("regresamit@gmail.com", "incorrect_password");
         Assert.assertEquals("Invalid Email or password.", loginPage.ErrInvalidEmailOrPassword());
-    }
+    }   // проверяем отображение ошибки при неверных данных
     @Test
     public void logInWithoutPasswordTest() {
         mainPage.clickSignIn();
         loginPage.tryToLogin("regresamit@gmail.com", "");
         Assert.assertEquals("Invalid Email or password.", loginPage.ErrInvalidEmailOrPassword());
-    }
+    }   // проверяем отображение ошибки при попытке залогинится без пароля
 }

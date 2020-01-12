@@ -26,13 +26,13 @@ public class MainPageTest {
     @Test
     public void clojureTest() {
         mainPage.clojureLanguage("valid");
-        Assert.assertFalse(mainPage.isPresentAndDisplayedSignUpElement());
-    }
+        Assert.assertTrue(mainPage.isPresentAndDisplayedSignUpElement());
+    }   // попытка успешного прохождения задачи и получения TRUE значения отображения элемента страницы регистрации
     @Test
     public void cTest() {
         mainPage.cLanguage("invalid");
         Assert.assertFalse(mainPage.isPresentAndDisplayedSignUpElement());
-    }
+    }   // попытка неправильного прохождения задачи и получения FALSE значения отображения элемента страницы регистрации
     @Test
     public void cPlusTest() {
         mainPage.cPlusLanguage("valid");

@@ -28,28 +28,32 @@ public class ProfileSettingsPage {
     private By successfullyUpdate = By.xpath("//div[@class='alert-box flash-msg notice']");
 
     public ProfileSettingsPage clickProfileSettingsButton () {
+        // Ёлемент кнопки Profile Settings скрыт за всплывающем окном, на которое мы должны навестись с помощью moveToElement
         action.moveToElement(driver.findElement(profileBar)).perform();
         driver.findElement(profileSettings).click();
         return new ProfileSettingsPage(driver);
     }
+    public ProfileSettingsPage clickConfirmNewUpdates() { //  нопка подтверждени€ изменений данных в профиле.
+        driver.findElement(confirmNewUpdates).click();
+        return new ProfileSettingsPage(driver);
+    }
     public ProfileSettingsPage setNameSkillsAndCompanyFields (String name, String company, String skills) {
+        // создаем метод, с помощью которого тестировщик вводит текст, которым он назначает изменени€ в пол€х профил€
         driver.findElement(this.profileName).sendKeys(name);
         driver.findElement(this.profileCompany).sendKeys(company);
         driver.findElement(this.profileSkills).sendKeys(skills);
         clickConfirmNewUpdates();
         return new ProfileSettingsPage(driver);
     }
-    public ProfileSettingsPage clickConfirmNewUpdates() {
-        driver.findElement(confirmNewUpdates).click();
-        return new ProfileSettingsPage(driver);
-    }
     public ProfileSettingsPage clickProfileRadioButtons() {
+        // прокликиваем радио баттоны
         driver.findElement(ExperienceRadioButton).click();
         driver.findElement(EmailNotificationsRadioButton).click();
         clickConfirmNewUpdates();
         return new ProfileSettingsPage(driver);
     }
     public ProfileSettingsPage tryToChangePassword (String password, String confirmPassword, String currentPassword) {
+        // метод, которым мы пытаемс€ изменить пароль профил€
         driver.findElement(this.newPassword).sendKeys(password);
         driver.findElement(this.newPasswordConfirmation).sendKeys(confirmPassword);
         driver.findElement(this.currentPassword).sendKeys(currentPassword);
@@ -57,17 +61,18 @@ public class ProfileSettingsPage {
         return new ProfileSettingsPage(driver);
     }
     public ProfileSettingsPage clickLogOutButton() {
+        // метод дл€ проверки успешного изменени€ парол€ профил€. LogOut --> LogIn
         action.moveToElement(driver.findElement(profileBar)).perform();
         driver.findElement(logOutButton).click();
         driver.findElement(By.xpath("//div[@class='logo-square']")).click();
         return new ProfileSettingsPage(driver);
     }
     public String getSuccessfullySettingsUpdateText() {
-        return driver.findElement(successfullyUpdate).getText();
+        return driver.findElement(successfullyUpdate).getText(); // запрашиваем текст всплывающего элемента об успешном редактирвании профил€
     }
     public String getNameText() {
-        return driver.findElement(profileName).getAttribute("value");
-    }
+        return driver.findElement(profileName).getAttribute("value");// input не позвол€ем нам получить текст getText методом
+    }                                                                   // запрашиваем атрибут 'value' и берем его значение
     public String getCompanyText() {
         return driver.findElement(profileCompany).getAttribute("value");
     }
@@ -75,7 +80,7 @@ public class ProfileSettingsPage {
         return driver.findElement(profileSkills).getAttribute("value");
     }
     public boolean isSelectedExperienceRadioButton() {
-        return driver.findElement(ExperienceRadioButton).isDisplayed();
+        return driver.findElement(ExperienceRadioButton).isDisplayed(); // boolean, который возвращает нам TRUE/FALSE выделени€ радио баттона
     }
     public boolean isSelectedEmailNotificationsRadioButtons() {
         return driver.findElement(EmailNotificationsRadioButton).isDisplayed();

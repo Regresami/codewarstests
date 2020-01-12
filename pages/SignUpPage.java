@@ -36,6 +36,7 @@ public class SignUpPage {
         return this;
     }
     public SignUpPage tryToSignUp(String email, String username, String password) {
+        // с этим методом тестировщик пытается зарегистрироваться, вводя нужные ему данные
         this.emailType(email);
         this.usernameType(username);
         this.passwordType(password);

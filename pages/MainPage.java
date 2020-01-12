@@ -1,5 +1,6 @@
 package codewars;
 
+
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -16,7 +17,11 @@ public class MainPage {
         PageFactory.initElements(driver, this);
         action = new Actions(driver);
     }
-
+    /*
+    Для того, чтобы пройти регистрацию на codewars.com мы должны для начала пройти интерактивный тест с простой задачей в
+    языке, который вы выбрали. В данной задаче нужно произвести синтаксические изменения в представленном компиляторе.
+    Только после этого шага мы сможем добраться до полей регистрации.
+    */
     @FindBy(xpath = "//a[text()='Log In']")
     private WebElement signInButton;
     @FindBy(xpath = "//form[@class='simple_form mbn']")
@@ -25,6 +30,7 @@ public class MainPage {
     private WebElement submitSignUpButton;
     @FindBy(xpath ="//a[@data-track='Language Tab Clicked']")
     private List<WebElement> languageList;
+    // для удобства и сокращения кода создаем лист веб элементов, у которого мы будем вызывать элементы списка по индексу
     @FindBy(xpath = "(//span[text()='a'])[2]")
     private WebElement clojureButton;
     @FindBy(xpath = "(//span[text()='b'])[2]")
@@ -53,12 +59,18 @@ public class MainPage {
             return signUpElement.isDisplayed();
         } catch (NoSuchElementException e) {
             return false;
-        }
-    }
+        } // Здесь мы назначаем boolean, который ищет элемент SignUp страницы и дает нам знать, успешно ли мы прошли
+    }     // этап выполнения задачи. Ловим эксепшн и возвращаем FALSE, так как "радной" FALSE isDisplayed'a ничего нам
+          // не вернёт кроме эксепшна, если он не видит элемента на странице.
+
     public MainPage clojureLanguage(String validOrInvalidCase) {
-        languageList.get(0).click();
+        // Здесь мы просим тестировщика указать сценарий тестакейса. valid/invalid
+        // valid - позитивный сценарий, в которым мы отправляем правильные данные для задачи
+        // invalid - негативный/неправильные данные
+        languageList.get(0).click(); // обращаемся к листу веб элементов и кликаем на язык Clojure
         if(validOrInvalidCase.equals("valid"))
             action.moveToElement(clojureButton).doubleClick().click().sendKeys("(* a b))").perform();
+        // В этой строчке мы колдуем с помощью Actions класса, который "трипл" кликом выделает нужную нам строку и передает валидные данные
         if(validOrInvalidCase.equals("invalid"))
             action.moveToElement(clojureButton).doubleClick().click().sendKeys("invalid test case").perform();
         submitSignUpButton.click();

@@ -1,4 +1,4 @@
-import codewars.LoginPage;
+﻿import codewars.LoginPage;
 import codewars.MainPage;
 import codewars.ProfileSettingsPage;
 import org.junit.After;
@@ -40,7 +40,7 @@ public class ProfileSettingsTest {
         Assert.assertEquals("testname", profileSettings.getNameText());
         Assert.assertEquals("testcompany", profileSettings.getCompanyText());
         Assert.assertEquals("testskills", profileSettings.getSkillsText());
-    }
+    }   // логинимся --> изменяем поля в профиле --> проверяем появления успешного апдейта --> проверяем соответсвие текста полей
     @Test
     public void clickProfileRadioButtonsTest() {
         mainPage.clickSignIn();
@@ -52,7 +52,7 @@ public class ProfileSettingsTest {
         profileSettings.clickConfirmNewUpdates();
         Assert.assertEquals("You updated your account successfully.\n×",
                 profileSettings.getSuccessfullySettingsUpdateText());
-    }
+    }   // логинимся --> кликаем радио баттоны --> проверяем успешно ли --> сохраняем --> проверям успешно ли
     @Test
     public void tryToChangePasswordTest() {
         mainPage.clickSignIn();
@@ -65,7 +65,7 @@ public class ProfileSettingsTest {
         mainPage.clickSignIn();
         loginPage.tryToLogin("regresamit@gmail.com", "password1");
         Assert.assertTrue(loginPage.checkHomePageHeader());
-    }
+    }   // логинимся --> вводим новый пароль --> сохраняем --> LogOut --> LogIn с новым паролем --> проверяем наличие шапки профиля
     @After
     public void tearDown() {
         driver.quit();

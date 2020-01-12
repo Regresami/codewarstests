@@ -25,6 +25,7 @@ public class LoginPage {
         return this;
     }
     public LoginPage tryToLogin(String email, String password) {
+        // метод, с помощью которого тестировщик вводит нужные ему данные для логина
         this.emailType(email);
         this.passwordType(password);
         driver.findElement(loginSubmitButton).click();
@@ -36,4 +37,5 @@ public class LoginPage {
     public String ErrInvalidEmailOrPassword() {
         return driver.findElement(errorInvalidEmailOrPassword).getText();
     }
-}
+}   // boolean - проверяем методом isDisplayed наличие элемента шапки профиля
+    // String - запрашиваем текст ошибки, которая говорит нам об ошибке емеила или пароля
